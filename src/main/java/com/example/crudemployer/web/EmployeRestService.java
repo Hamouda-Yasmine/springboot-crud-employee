@@ -3,6 +3,7 @@ package com.example.crudemployer.web;
 import com.example.crudemployer.entities.Employee;
 import com.example.crudemployer.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,5 +36,10 @@ public class EmployeRestService {
         employeeRepository.deleteById(id);
     }
 
+    @GetMapping("/auth")
+    @ResponseBody
+    public Authentication authentication(Authentication authentication){
+        return authentication;
+    }
 
 }
